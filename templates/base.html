@@ -1,0 +1,339 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Welcome to iCoder. A blog for coding enthusiasts">
+
+  <!-- CSS From File -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  {%block css%} {%endblock css%}
+
+
+  <title>{%block title%} {% endblock title %} | Radiance Academy</title>
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a _ngcontent-serverapp-c51="" routerlink="/" class="navbar-brand" href="/">
+      <img _ngcontent-serverapp-c51="" height="45px" width="50px" src="{% static 'img/logo.png' %}" alt="Radiance Academy"
+        class="brandLogo"></a>
+    <a class="navbar-brand" href="/">Radiance Academy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto " style="margin-left: 6rem">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="false" aria-expanded="false">
+            Courses Offered
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/neet">Neet</a>
+            <a class="dropdown-item" href="/jee">JEE(Main)</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/mhcet">MH-CET</a>
+            <a class="dropdown-item" href="/ssc&hsc">HSC & SSC</a>
+        </div>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/result">Result</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/download">Download</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+
+
+      </ul>
+      <div class="mx-2">
+        <button class="btn  " data-toggle="modal" data-target="#enquiryModal">Post Your
+          Enquiry</button>
+      </div>
+    </div>
+  </nav>
+
+  {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show " role="alert" style="padding-bottom: 5px; padding-top: 4px; margin-bottom:0;">
+  <strong>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+ {% endfor %}
+{% endif %}
+  
+
+  <!-- Enquiry Modal -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="enquiryModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ask</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="/contact">
+              {% csrf_token %}
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name='name' placeholder='Enter Your Full Name' required="true">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name='email' placeholder='jc.junaid.chaudhary@gmail.com' aria-describedby="emailHelp" required="true">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" class="form-control" pattern="[0-9]{10}" id="phone" name='phone' placeholder='9702737441' required="true">
+
+            </div>
+            
+
+            <div class="form-group">
+              <label for="Select">Select your Query</label>
+              <select class="form-control" id="Select" name="Select">
+                <option selected>Neet</option>
+                <option>JEE</option>
+                <option>SSC or HSC</option>
+                <option>Others</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="descself">Tell us about yourself</label>
+              <textarea class="form-control" id="descself" name="descself" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="desc">Tell us about your concern</label>
+              <textarea class="form-control" id="desc" name="desc" rows="3"></textarea required="true">
+            </div>
+            
+            <div class="form-group row">
+              <div class="col-sm-4">Are you a Student?</div>
+              <div class="col-sm-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Check1" name="Check1">
+                  <label class="form-check-label" for="Check1">
+                    Yes
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-4">Are You Teacher?</div>
+              <div class="col-sm-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Check2"name="Check2">
+                  <label class="form-check-label" for="Check2">
+                    Yes
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+{% comment %} map Modal start {% endcomment %}
+<div class="modal fade" id="sakinakamapModal" tabindex="-1" role="dialog" aria-labelledby="sakinakamapModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Sakinaka Branch</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="padding:0rem">
+      <div class="rows my-2">
+        <div class="col-lg-12">
+            <div style="overflow:hidden;width:100%;height:300px;resize:none;max-width:100%;">
+                <div id="my-map-display" style="height:100%; width:100%;max-width:100%;">
+                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.1750407687914!2d72.8862376142131!3d19.09997545618342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9930f442225%3A0x7f9aeec76a1e483f!2sRadiance%20Academy!5e0!3m2!1sen!2sin!4v1641730533609!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+               
+            </div>
+            <script
+                src="https://www.hostingreviews.website/google-maps-authorization.js?id=6b4b0a62-c369-d428-daa5-5cc3b3d1995c&amp;c=google-html&amp;u=1470119377"
+                defer="defer" async="async"></script>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="kurlamapModal" tabindex="-1" role="dialog" aria-labelledby="kurlamapModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Kurla Branch</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="padding:0rem">
+      <div class="rows my-2">
+        <div class="col-lg-12">
+            <div style="overflow:hidden;width:100%;height:300px;resize:none;max-width:100%;">
+                <div id="my-map-display" style="height:100%; width:100%;max-width:100%;">
+                    <iframe style="height:100%;width:100%;border:0;" frameborder="0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.7969807330446!2d72.87823981421266!3d19.072661757035217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c962e3d38ebf%3A0xae4f82e05d2630a3!2sRadiance%20Academy!5e0!3m2!1sen!2sin!4v1641986862186!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+               
+            </div>
+            <script
+                src="https://www.hostingreviews.website/google-maps-authorization.js?id=6b4b0a62-c369-d428-daa5-5cc3b3d1995c&amp;c=google-html&amp;u=1470119377"
+                defer="defer" async="async"></script>
+        </div>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+{% comment %} end map Modal {% endcomment %}  
+
+  {%block body%}{%endblock body%}
+
+  <!-- footer -->
+
+  <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out"
+  data-abc="true"></a>
+
+  <footer class="footer-distributed">
+
+    <div class="footer-left">
+      <img src="{% static 'img/logo.png' %} " >
+      <h3>Radiance Academy</h3>
+
+      <p class="footer-links">
+        <a href="/">Home</a>
+        |
+        <a href="/about">About</a>
+        |
+        <a href="/success">Stories</a>
+        |
+        <a href="/contact">Contact</a>
+        |
+        <a href="/gallery">Gallery</a>
+      </p>
+
+      <p class="footer-company-name">© 2019 Eduonix Learning Solutions Pvt. Ltd.</p>
+    </div>
+
+    <div class="footer-center">
+      <div>
+        <i data-toggle="modal" data-target="#sakinakamapModal" class="fa fa-map-marker"></i><p><span>Tilak Nagar, 90 feet Road</span>
+          Sakinaka, Mumbai - 400072</p>
+      </div>
+      
+      <div>
+        <i data-toggle="modal" data-target="#kurlamapModal" class="fa fa-map-marker"></i><p><span>White House, 3, SG Barve Marg,</span>
+          Netaji Nagar, Kurla West, Mumbai - 400070</p>
+      </div>
+
+      <div>
+        <i  data-toggle="modal" data-target="#enquiryModal" class="fa fa-phone"></i>
+        <p>+91 9004190443</p>
+      </div>
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:support@eduonix.com">radiance.myacademy@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-right">
+      <p class="footer-company-about">
+        <span>About Our Academy</span>
+        We offer training and skill building courses across Technology, Design, Management, Science and Humanities.
+      </p>
+      
+      <div class="footer-icons">
+        <p class="footerHead">Join Us</p>
+        <a href="https://m.facebook.com/Radiance.myacademy/" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.instagram.com/radiance.academy"  target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/c/RadianceAcademy" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% block scriptlink %}{% endblock scriptlink %}
+  <script>{% block script %}{% endblock script %}</script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+      <script src="static/js/scroll.js"></script>
+      
+    
+</body>
+
+</html>

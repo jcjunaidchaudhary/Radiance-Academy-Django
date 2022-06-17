@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Question Pepar{% endblock title %}
+{% load static %}
+
+{% block body %}
+<h1 class="text-center pt-2">Question Pepers</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">File</th>
+      </tr>
+    </thead>
+    <tbody>
+
+     {% for i in pdf|slice:"::-1" %}
+      <tr style="background:none">
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.title}}</td>
+        <td>{{i.date}}</td>
+        <td style="width: 20%;">
+          <a  href="/media/{{i.pdf}}" target="_blank" rel="noopener noreferrer" class="table-link  text-info">
+              <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+              </span>
+          </a>
+          <a href="/view-pdf/{{i.id}} " class="table-link text-danger">
+              <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-download fa-stack-1x fa-inverse"></i>
+              </span>
+          </a>
+      </td>
+        {% comment %} <td> <a href="/media/{{i.pdf}}" target="_blank" rel="noopener noreferrer" ><button type="button" class="btn btn-danger fa fa-eye"> </button></a>
+           <a href="/view-pdf/{{i.id}} "  ><button type="button" class="btn btn-danger fa fa-download"> </button></a></td> {% endcomment %}
+      {% endfor %} 
+      
+    </tbody>
+  </table>
+{% endblock body %}

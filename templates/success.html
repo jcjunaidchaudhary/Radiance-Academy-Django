@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/success.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+{% endblock css %}
+
+{% block title %}Success Stories{% endblock title %}
+
+{% block body %}
+<div class="owl-carousel owl-theme mt-5">
+    <div class="owl-item">
+        <div class="card">
+            <div class="img-card"> <img src="/media/{{story.0.image}}" alt=""> </div>
+            <div class="testimonial mt-4 mb-2">{{story.0.thought}}</div>
+            <div class="name"> {{story.0.name}}</div>
+        </div>
+    </div>
+     {% for i in story|slice:"1:"%}
+    <div class="owl-item">
+        <div class="card">
+            <div class="img-card"> <img src="/media/{{i.image}}" alt=""> </div>
+            <div class="testimonial mt-4 mb-2"> {{i.thought}}</div>
+            <div class="name"> {{i.name}} </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+   
+    
+</div>
+
+{% endblock body %}
+
+{% block scriptlink %}<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>{% endblock scriptlink %}
+
+{% block script %}
+$(document).ready(function () {
+    var silder = $(".owl-carousel");
+    silder.owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: false,
+    items: 1,
+    stagePadding: 20,
+    center: true,
+    nav: false,
+    margin: 50,
+    dots: true,
+    loop: true,
+    responsive: {
+    0: { items: 1 },
+    480: { items: 2 },
+    575: { items: 2 },
+    768: { items: 2 },
+    991: { items: 3 },
+    1200: { items: 4 }
+    }
+    });
+    });
+    {% endblock script %}

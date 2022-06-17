@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block body %}
+  <!-- map -->
+  <div class="rows my-2">
+    <div class="col-lg-12">
+        <div style="overflow:hidden;width:100%;height:300px;resize:none;max-width:100%;">
+            <div id="my-map-display" style="height:100%; width:100%;max-width:100%;">
+                <iframe style="height:100%;width:100%;border:0;" frameborder="0"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.1750407687914!2d72.8862376142131!3d19.09997545618342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9930f442225%3A0x7f9aeec76a1e483f!2sRadiance%20Academy!5e0!3m2!1sen!2sin!4v1641730533609!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+           }
+        </div>
+        <script
+            src="https://www.hostingreviews.website/google-maps-authorization.js?id=6b4b0a62-c369-d428-daa5-5cc3b3d1995c&amp;c=google-html&amp;u=1470119377"
+            defer="defer" async="async"></script>
+    </div>
+</div>
+
+
+<a href="#" class="btn btn-success btn-lg active  btn-block" role="button" aria-pressed="true"><strong><span itemprop="name">ADMISSION OFFICES</span></strong></a>
+
+<!-- Offices -->
+<div class="container my-4">
+    <div class="row">
+      <div class="col-sm-6 " style="text-align:center;">
+          <!-- Contacts -->
+          <div class="headline">
+            <p><img  class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'img/per1.jpg' %}" alt="" height="160" width="200">
+            </p>
+            <h2 class="Contact_sub">SAKINAKA</h2>
+        </div>
+
+        <ul class="list-unstyled who margin-bottom-30">
+            <li><a href="#"><i class="fa fa-home contact_icon"></i></a>
+                <span itemprop="streetAddress" class="sub_content"> Tilak Nagar, 90 feet Road</span>
+                <span itemprop="addressLocality" class="sub_content"><br>
+                    Sakinaka, Mumbai</span> - <span itemprop="postalCode" class="sub_content">400072</span>
+            </li>
+            <li itemprop="email" class="sub_content"><a href="mailto:info@allen.ac.in"><i
+                        class="fa fa-envelope contact_icon"></i> radiance.myacademy@gmail.com</a></li>
+            <li><a href="tel:07442757575"><i class="fa  fa-phone contact_icon "></i> <span
+                        itemprop="telephone" class="sub_content">+91-9004190443</span></a><br>
+
+            </li>
+            <li>
+                <a href="#" onclick="" role="button"
+                    class="btn-u btn-u-sm rounded bg-color-green" style="color:#FFF;" orilat="25.223867"
+                    orilan="75.878609" deslat="25.1375237" deslan="75.8465139"
+                    placequery="ALLEN Career Institute" data-toggle="modal" data-target="#sakinakamapModal"><i
+                        class="fa fa-map-marker" style="color:#FFF;"></i> Locate in MAP </a>
+            </li>
+        </ul>
+      </div>
+      <div class="col-sm-6 "style="text-align:center;">
+          <!-- Contacts -->
+          <div class="headline">
+            <p><img  class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{% static 'img/Kurla Building 2.jpg' %}" alt="" height="160" width="200">
+            </p>
+            <h2 class="Contact_sub">KURLA WEST</h2>
+        </div>
+
+        <ul class="list-unstyled who margin-bottom-30">
+            <li><a href="#"><i class="fa fa-home contact_icon"></i></a>
+                <span class="sub_content" itemprop="streetAddress">White House, 3, SG Barve Marg,</span>
+                <span class="sub_content" itemprop="addressLocality"><br>
+                    Netaji Nagar, Kurla West, Mumbai </span> - <span class="sub_content" itemprop="postalCode">400070</span>
+            </li>
+            <li itemprop="email" class="sub_content"><a href="mailto:info@allen.ac.in"><i
+                        class="fa fa-envelope contact_icon "></i> radbusiness20@gmail.com</a></li>
+            <li><a href="tel:07442757575"><i class="fa  fa-phone contact_icon "></i><span
+                        itemprop="telephone" class="sub_content">+91-8652601538</span></a><br>
+
+            </li>
+            <li>
+                <a href="https://goo.gl/maps/L9dahMpdRgijEqK3A" onclick="LoadMap_onclick(0,1)" role="button"
+                    class="btn-u btn-u-sm rounded bg-color-green" style="color:#FFF;" orilat="25.223867"
+                    orilan="75.878609" deslat="25.1375237" deslan="75.8465139"
+                    placequery="ALLEN Career Institute" data-toggle="modal" data-target="#kurlamapModal"><i class="fa fa-map-marker" style="color:#FFF;"></i> Locate in MAP </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="container mb-3 p-4" >
+    <h1 class="text-center">Contact Us</h1>
+    <form method="post" action="/contact">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name='name' placeholder='Enter Your Full Name' required="true">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name='email' placeholder='jc.junaid.chaudhary@gmail.com' aria-describedby="emailHelp" required="true">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" pattern="[0-9]{10}" id="phone" name='phone' placeholder='9702737441' required="true">
+
+      </div>
+
+      <div class="form-group">
+        <label for="Select">Select your Query</label>
+        <select class="form-control" id="Select" name="Select">
+          <option selected>Neet</option>
+          <option>JEE</option>
+          <option>SSC or HSC</option>
+          <option>Others</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="descself">Tell us about yourself</label>
+        <textarea class="form-control" id="descself" name="descself" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Tell us about your concern</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+      </div>
+      
+      <div class="form-group row">
+        <div class="col-sm-4">Are you a Student?</div>
+        <div class="col-sm-8">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Check1" name="Check1">
+            <label class="form-check-label" for="Check1">
+              Yes
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-4">Are You Teacher?</div>
+        <div class="col-sm-8">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Check2"name="Check2">
+            <label class="form-check-label" for="Check2">
+              Yes
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+ 
+
+
+
+</div>
+
+
+
+
+{% endblock body %}
+

@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+.text {
+    color: #181615;
+    text-align: center
+}
+.desc{
+    font-size: 19px;
+}
+.jumbotron {
+    margin-bottom: -7.2rem;
+    background-color: #e9ecef;
+   
+}
+
+.folded-corner:hover .text h3 {
+    visibility: visible;
+    color:white;
+}
+.folded-corner:hover .text {
+    visibility: visible;
+    color:white;
+}
+
+.Services-tab {
+    margin-top: 80px
+
+}
+
+.folded-corner {
+    padding: 60px 30px;
+    position: relative;
+    font-size: 100%;
+    text-decoration: none;
+    color: #999;
+    background: transparent;
+    transition: all ease .5s;
+    border: 1px solid #d1cdcb
+    
+}
+
+.folded-corner:hover {
+    background-color:  #7bcfd4;
+}
+
+.folded-corner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 0px 0px 0;
+    border-color: #ddd #000;
+    transition: all ease .3s
+}
+
+.folded-corner:hover:before {
+    background-color: #09f109;
+    border-width: 0 50px 50px 0;
+    border-color: #eee #000
+}
+
+.service_tab_1 {
+    background-color: rgb(241, 234, 234)
+    
+}
+
+.service_tab_1:hover .fa-icon-image {
+    color: white;
+    transform: scale(1.5)
+}
+
+.fa-icon-image {
+    color: dodgerblue;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    font-size-adjust: none;
+    font-stretch: normal;
+    
+    text-rendering: auto;
+    transition: all .65s linear 0s;
+    text-align: center;
+    transition: all 1s cubic-bezier(.99, .82, .11, 1.41)
+}
+</style>
+<link rel="stylesheet" href="static/css/unit.css">
+{% endblock css %}
+{% block title %}About{% endblock title %}
+
+{% block body %}
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container mt-4">
+        <h1 class="display-3" style="font-family: sans-serif;">Radiance Academy</h1>
+        <p class="desc" style="font-weight:400">I would like to welcome you all in the "RADIANCE ACADEMY" by invoking the name of Allah, the most benevolent without his will and direction we could not have reached where we are and scaled the Heights which we have reached. Our strong belief and total Trust in the Ideals closely linked to Islam has helped us shape the perfect learning environment that's a mix of the contemporary and the religious .I am sure its going to be a magical sojourn for you as we take a walk down the memory lane and a peak at our future blueprint.</p>
+        <!-- <p><a class="btn btn-lg" href="#" role="button">Learn more »</a></p> -->
+      </div>
+    </div>
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-4 Services-tab item">
+                <div class="folded-corner service_tab_1 " style="box-shadow:1px 3px 9px 5px;">
+                    <div class="text"> <i class="fa fa-comment fa-5x fa-icon-image"></i>
+                        <p class="item-title">
+                            <h3 class="NEET_title ">Message</h3>
+                        </p><!-- /.item-title -->
+                        <p class="desc" > This is an amazing set of animated accordions based completely on CSS. They come oriented both vertically and horizontally in order to fit properly in your project. In order to see the slides, </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 Services-tab item">
+                <div class="folded-corner service_tab_1" style="box-shadow:1px 3px 9px 5px;">
+                    <div class="text"> <i class="fa fa-eye fa-5x fa-icon-image"></i>
+                        <p class="item-title">
+                            <h3  class="NEET_title ">Vision</h3>
+                        </p><!-- /.item-title -->
+                        <p class="desc" > This is an amazing set of animated accordions based completely on CSS. They come oriented both vertically and horizontally in order to fit properly in your project. In order to see the slides, </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 Services-tab item">
+                <div class="folded-corner service_tab_1" style="box-shadow:1px 3px 9px 5px;">
+                    <div class="text"> <i class="fa fa-bullseye fa-5x fa-icon-image"></i>
+                        <p class="item-title">
+                            <h3 class="NEET_title ">Mission</h3>
+                        </p>
+                        <p class="desc" > This is an amazing set of animated accordions based completely on CSS. They come oriented both vertically and horizontally in order to fit properly in your project. In order to see the slides, </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+  </main>
+
+<!-- Our Team -->
+<div class="container">
+    <div class="section-title">
+        <h1>Our Unit Members</h1>
+    </div>
+
+    <div class="row">
+
+
+        <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="{%static 'img/team-1.jpg'%}" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>Steven</h2>
+                    <h3>CEO & Founder</h3>
+                    <p>Some text goes here that describes about team members</p>
+                    <h4>abc@gmail.com</h4>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-tw"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="social-fb"> <i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social-li"> <i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="social-in"> <i class="fa fa-instagram"></i></a>
+                    <a href="#" class="social-yt"> <i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="{%static 'img/team-2.jpg'%}" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>Mayra</h2>
+                    <h3>Art Director</h3>
+                    <p>Some text goes here that describes about team members</p>
+                    <h4>abc@gmail.com</h4>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-tw"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="social-fb"> <i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social-li"> <i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="social-in"> <i class="fa fa-instagram"></i></a>
+                    <a href="#" class="social-yt"> <i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="{%static 'img/team-3.jpg'%}" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>John</h2>
+                    <h3>Developer</h3>
+                    <p>Some text goes here that describes about team members</p>
+                    <h4>abc@gmail.com</h4>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-tw"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="social-fb"> <i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social-li"> <i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="social-in"> <i class="fa fa-instagram"></i></a>
+                    <a href="#" class="social-yt"> <i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="team">
+                <div class="team-img">
+                    <img src="{%static 'img/team-4.jpg'%}" alt="Team Image">
+                </div>
+                <div class="team-content">
+                    <h2>Jennifer</h2>
+                    <h3>Designer</h3>
+                    <p>Some text goes here that describes about team members</p>
+                    <h4>abc@gmail.com</h4>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-tw"> <i class="fa fa-twitter"></i></a>
+                    <a href="#" class="social-fb"> <i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social-li"> <i class="fa fa-linkedin"></i></a>
+                    <a href="#" class="social-in"> <i class="fa fa-instagram"></i></a>
+                    <a href="#" class="social-yt"> <i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock body %}

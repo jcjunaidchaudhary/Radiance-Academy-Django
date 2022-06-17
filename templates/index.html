@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/success.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<style>
+     .item_logo:hover {
+      transform: scale(1.3)}
+      .alert-dismissible .close {
+        position: absolute;
+        top: -3px;
+        right: 0;
+        padding: 4px 4px;
+        color: inherit;
+    }
+    .typewriter h1 {
+      color: #fff;
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      animation: 
+        typing 3.5s steps(30, end),
+        blink-caret .5s step-end infinite;
+    }
+    
+    /* The typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+</style>
+
+{% endblock css %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+
+{% comment %} <div class="col-custom-m  alert-dismissible fade show my-0" role="alert" style="margin-top:0.75px; margin-bottom:-5px;">
+  <marquee style="border: 1px solid red;font-weight: bold;color: red;padding: 3px 5px;">
+    {% for i in notice|slice:"::-1"  %}  
+      
+      
+      <a href="notice/{{i.id}}"class="fa fa-arrow-right">{{i.title}}</a>***&emsp;&emsp;&emsp;
+
+
+      {% endfor %} 
+</marquee>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+ </div>  {% endcomment %}
+
+ <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert" style="padding: 1px;">
+  <marquee style="margin-bottom: -6px; margin-right: 25px; border: 1px solid red; font-weight: bold; color: red; padding: 1px">
+    {% for i in notice|slice:"::-1"  %}  
+      
+      
+      <a href="notice/{{i.id}}"class="fa fa-arrow-right">{{i.title}}</a>***&emsp;&emsp;&emsp;
+
+
+      {% endfor %} 
+</marquee>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true" style="color:red">&times;</span>
+  </button>
+</div>
+ 
+<div id="carouselExampleCaptions" class="carousel slide " data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src= {% static 'img/bg1.jpg' %} class="d-block w-100" alt="...">
+      <div class="typewriter carousel-caption d-none d-md-block">
+        <h1 style="text-shadow: 0 0 7px black">"See The Difference That Make's The Difference"</h1>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%static 'img/Bg3.jpg'%}" class="d-block w-100" alt="...">
+      <div class="typewriter carousel-caption d-none d-md-block">
+        <h1 style="text-shadow: 0 0 7px black">Our Class in Kurla</h1>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src=" {%static 'img/Bg2.jpg'%}" class="d-block w-100" alt="...">
+      <div class=" typewriter carousel-caption d-none d-md-block">
+        <h1 style="text-shadow: 0 0 7px black">Our Class in Sakinaka</h1>
+
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br>
+
+<div class="container">
+  <h1 class="why_radiance">WHY RADIANCE ACADEMY?</h1>
+</div>
+
+
+<div class="container my-5">
+  <!-- Three columns of text below the carousel -->
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-lg-3  col-6 col-sm-3 ">
+      <img src="{% static 'img/personal counseling3.jpg'%}" class="item_logo bd-placeholder-img rounded-circle img-fluid lazyload"
+        width="120" height="120" alt="..."><br><br>
+      <p class="why_text col-10">Personal Counselling Guidance</p>
+
+    </div>
+    <div class="col-lg-3  col-6 col-sm-3">
+      <img src="{%static 'img/Regular Test2.png'%} " class="item_logo bd-placeholder-img rounded-circle img-fluid lazyload" width="120"
+        height="120" alt="..."><br><br>
+      <p class="why_text ">Regular Tests</p>
+
+
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-3  col-6 col-sm-3">
+      <img src="{% static 'img/Teacher.png'%}" class="item_logo bd-placeholder-img rounded-circle img-fluid lazyload" width="120"
+        height="120" alt=""><br><br>
+      <p class="why_text col-12">Experienced & Qualified Staff</p>
+
+    </div>
+    <div class="col-lg-2 col-6 col-sm-3">
+      <img src="{%static 'img/Regular Lecture.jpg'%}" class="item_logo bd-placeholder-img rounded-circle img-fluid lazyload" width="120"
+        height="120" alt=""><br><br>
+      <p class="why_text ">Regular Lectures</p>
+    </div>
+
+  
+  </div>
+</div>
+
+
+
+<!-- Youtube -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="video-responsive">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/g0eVQZLwhxc" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="video-responsive" id="video-margin">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1gS6eEdVS60" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+
+<!-- Divider -->
+<hr class="featurette-divider">
+
+<div class="container marketing my-4">
+  <!-- START THE FEATURETTES -->
+
+  <div class="row featurette d-flex justify-content-center">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your
+          mind.</span></h2>
+      <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting
+        prose here.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="{% static 'img/per1.jpg' %} " class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+        width="350" height="300" alt="">
+
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette d-flex justify-content-center">
+    <div class="col-md-6 order-md-2 ">
+      <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+      <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how
+        this layout would work with some actual real-world content in place.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://source.unsplash.com/400x400/?class,students"
+        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="300"
+        alt="">
+
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+  
+  <!-- /END THE FEATURETTES -->
+
+</div>
+
+<h1 class="text-center" style="">Success Stories</h1>
+<div class="owl-carousel owl-theme mt-0">
+  
+  <div class="owl-item">
+      <div class="card">
+          <div class="img-card"> <img src="/media/{{story.0.image}}" alt=""> </div>
+          <div class="testimonial mt-4 mb-2">{{story.0.thought}}</div>
+          <div class="name"> {{story.0.name}}</div>
+      </div>
+  </div>
+   {% for i in story|slice:"1:"%}
+  <div class="owl-item">
+      <div class="card">
+          <div class="img-card"> <img src="/media/{{i.image}}" alt=""> </div>
+          <div class="testimonial mt-4 mb-2"> {{i.thought}}</div>
+          <div class="name"> {{i.name}} </div>
+      </div>
+  </div>
+  {% endfor %}
+  
+ 
+  
+</div>
+
+{% endblock body %}
+{% block scriptlink %}<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>{% endblock scriptlink %}
+
+{% block script %}
+$(document).ready(function () {
+    var silder = $(".owl-carousel");
+    silder.owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: false,
+    items: 1,
+    stagePadding: 20,
+    center: true,
+    nav: false,
+    margin: 50,
+    dots: true,
+    loop: true,
+    responsive: {
+    0: { items: 1 },
+    480: { items: 2 },
+    575: { items: 2 },
+    768: { items: 2 },
+    991: { items: 3 },
+    1200: { items: 4 }
+    }
+    });
+    });
+    {% endblock script %}
