@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$l*$((en$)7y3@nt+6t@5^2_abvcbd8uj(7)%p%y*wl8jvk&!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,13 +74,66 @@ WSGI_APPLICATION = 'RadianceAcademy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'radiance',
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'junedahmad',
+
+        'HOST': 'database-1.ccv4qsgzpxos.us-east-1.rds.amazonaws.com',
+
+        'PORT': '5432',
+
+    }
+
+}
+#juned
+#junedahmad
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql',
+
+#         'NAME': 'Radiance_Test',
+
+#         'USER': 'postgres',
+
+#         'PASSWORD': 'junedahmad',
+
+#         'HOST': 'localhost',
+
+#         'PORT': '5432',
+
+#     }
+
+# }
+
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': 'radiance',
+#     'USERNAME': 'admin',
+#     'PASSWORD': 'MumbaiCodingClub',
+#     'HOST': 'database.ccv4qsgzpxos.us-east-1.rds.amazonaws.com',
+#     'PORT': '3306',
+#    }
+# }
+#MumbaiCodingClub
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
